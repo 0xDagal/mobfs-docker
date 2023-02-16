@@ -1,0 +1,17 @@
+version: '3.1'
+services:
+
+  mobsf:
+    image: opensecurity/mobile-security-framework-mobsf
+    ports:
+      - 8000:8000
+    environment:
+      ANALYZER_IDENTIFIER: 'android-container'
+
+  android-container:
+    image: budtmo/docker-android-x86-12.0
+    privileged: true
+    environment:
+      DEVICE: 'Samsung Galaxy S10'
+    ports:
+      - 6080:6080
